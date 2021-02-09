@@ -1,4 +1,32 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $dark;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $grey;
+
+  .logo {
+    font-family: $logo-font;
+    font-size: 35px;
+    color: $purple;
+    margin-left: 20px;
+    transition: all 0.3s;
+
+
+    &:hover {
+      color: $red;
+      cursor: pointer;
+    }
+  }
+
+  .buttons {
+    margin-right: 20px;
+  }
+}

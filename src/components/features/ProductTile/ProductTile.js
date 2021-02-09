@@ -3,28 +3,27 @@ import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
 
-import { Button } from '../../common/Button/Button';
-
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './Header.module.scss';
+import styles from './ProductTile.module.scss';
 
-const Component = ({className, children, status}) => (
+const Component = ({className, product}) => (
   <div className={clsx(className, styles.root)}>
-    <div className={styles.logo}>Bulletin</div>
-    <div className={styles.buttons}>
-      <Button name={'Log out'} to={'/'} status={status}></Button>
-      {status === 'user' || status === 'admin' ? <Button name={'Add new'} to={'/'}></Button> : ''};
+    <div className={styles.photoAndTitle}>
+      <img alt='product' src={product.photo}/>
+      <h2>{product.title}</h2>
     </div>
-    {children}
+    <div className={styles.price}>
+      $ {product.price}
+    </div>
   </div>
 );
 
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  status: PropTypes.string,
+  product: PropTypes.object,
 };
 
 // const mapStateToProps = state => ({
@@ -38,8 +37,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as Header,
-  // Container as Header,
-  Component as HeaderComponent,
+  Component as ProductTile,
+  // Container as ProductTile,
+  Component as ProductTileComponent,
 };
-

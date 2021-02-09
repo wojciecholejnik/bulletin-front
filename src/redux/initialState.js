@@ -1,4 +1,6 @@
+
 export const initialState = {
+  status: 'user', // can be also: 'free' | 'admin'
   posts: {
     data: [
       {
@@ -11,6 +13,7 @@ export const initialState = {
         price: 200,
         phone: '123321123',
         id: 1,
+        photo: 'https://images.pexels.com/photos/333984/pexels-photo-333984.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
       },
       {
         title: 'iPhone for sale. Good price !', // min 10 chars
@@ -22,6 +25,7 @@ export const initialState = {
         price: 100,
         phone: '123321123',
         id: 2,
+        photo: 'https://images.pexels.com/photos/3121979/pexels-photo-3121979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
       },
       {
         title: 'Desk for programming student', // min 10 chars
@@ -33,6 +37,7 @@ export const initialState = {
         price: 80,
         phone: '123321123',
         id: 3,
+        photo: 'https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
       },
       {
         title: 'Skoda Octavia 2015', // min 10 chars
@@ -44,6 +49,7 @@ export const initialState = {
         price: 3000,
         phone: '123321123',
         id: 4,
+        photo: 'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
       },
     ],
     loading: {

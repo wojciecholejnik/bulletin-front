@@ -3,35 +3,41 @@ import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { Header } from '../Header/Header';
+import { Homepage } from '../../views/Homepage/Homepage';
+
+import { connect } from 'react-redux';
+import { getStatus, getAll } from '../../../redux/postsRedux';
 
 import styles from './MainLayout.module.scss';
 
-const Component = ({className, children}) => (
+const Component = ({className, status, products}) => (
   <div className={clsx(className, styles.root)}>
-    <h2>MainLayout</h2>
-    {children}
+    <Header status={status}/>
+    <Homepage products={products}/>
   </div>
 );
 
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  status: PropTypes.string,
+  products: PropTypes.array,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = state => ({
+  status: getStatus(state),
+  products: getAll(state),
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),
 // });
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps)(Component);
 
 export {
-  Component as MainLayout,
-  // Container as MainLayout,
+  // Component as MainLayout,
+  Container as MainLayout,
   Component as MainLayoutComponent,
 };
