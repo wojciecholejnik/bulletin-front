@@ -1,4 +1,21 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+  .photoWrapper {
+    display:flex;
+    justify-items: center;
+    align-items: center;
+    padding: 10px;
+    background-color: whitesmoke;
+    border-radius: 4px;
+
+  }
+
+  img {
+    max-height: 630px;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 4px;
+
+  }
+}

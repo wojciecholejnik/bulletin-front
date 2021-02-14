@@ -1,4 +1,8 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+  background-color: whitesmoke;
+  .headingContainer {
+    margin: 0 auto;
+  }
+}

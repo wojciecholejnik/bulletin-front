@@ -1,4 +1,9 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+  display: flex;
+  img {
+    margin: 0 auto;
+    width: 100%;
+  }
+}

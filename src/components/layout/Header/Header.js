@@ -1,22 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+
+
 
 import clsx from 'clsx';
 
-import { Button } from '../../common/Button/Button';
+// import { Button } from '../../common/Button/Button';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { changeStatus, getIsLogged } from '../../../redux/postsRedux';
 
 import styles from './Header.module.scss';
+import { MenuNav } from '../../common/MenuNav/MenuNav';
+import { Button } from '@material-ui/core';
 
-const Component = ({className, children, status}) => (
+
+const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
-    <div className={styles.logo}>Bulletin</div>
-    <div className={styles.buttons}>
-      <Button name={'Log out'} to={'/'} status={status}></Button>
-      {status === 'user' || status === 'admin' ? <Button name={'Add new'} to={'/'}></Button> : ''};
-    </div>
+    <Button color="secondary" component={NavLink} to='/' className={styles.logo}>Bulletin</Button>
+    <nav className={styles.buttons}>
+      <MenuNav/>
+    </nav>
     {children}
   </div>
 );
@@ -24,22 +29,21 @@ const Component = ({className, children, status}) => (
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  status: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = state => ({
+  logged: getIsLogged(state),
+});
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = dispatch => ({
+  changeStatus: newState => dispatch(changeStatus(newState)),
+});
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as Header,
-  // Container as Header,
+  // Component as Header,
+  Container as Header,
   Component as HeaderComponent,
 };
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ProductTileComponent } from './ProductTile';
+import { MenuNavComponent } from './MenuNav';
 
-describe('Component ProductTile', () => {
+describe('Component MenuNav', () => {
   it('should render without crashing', () => {
-    const component = shallow(<ProductTileComponent />);
+    const component = shallow(<MenuNavComponent />);
     expect(component).toBeTruthy();
   });
 });

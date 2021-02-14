@@ -1,0 +1,16 @@
+@import '../../../styles/settings.scss';
+
+
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+}
+
+@media screen and (max-width: 340px) {
+  .root {
+    flex-direction: column;
+  }
+}
+

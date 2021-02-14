@@ -4,29 +4,28 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { Header } from '../Header/Header';
-import { Homepage } from '../../views/Homepage/Homepage';
 
 import { connect } from 'react-redux';
-import { getStatus, getAll } from '../../../redux/postsRedux';
+import { getIsLogged, getAll } from '../../../redux/postsRedux';
 
 import styles from './MainLayout.module.scss';
 
-const Component = ({className, status, products}) => (
+const Component = ({className, children, logged}) => (
   <div className={clsx(className, styles.root)}>
-    <Header status={status}/>
-    <Homepage products={products}/>
+    <Header/>
+    {children}
   </div>
 );
 
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  status: PropTypes.string,
+  logged: PropTypes.bool,
   products: PropTypes.array,
 };
 
 const mapStateToProps = state => ({
-  status: getStatus(state),
+  logged: getIsLogged(state),
   products: getAll(state),
 });
 

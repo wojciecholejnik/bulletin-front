@@ -11,22 +11,39 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid $grey;
+  z-index: 999;
 
   .logo {
     font-family: $logo-font;
     font-size: 35px;
-    color: $purple;
+    color: $red;
     margin-left: 20px;
-    transition: all 0.3s;
-
+    text-decoration: underline;
 
     &:hover {
-      color: $red;
       cursor: pointer;
     }
   }
 
   .buttons {
-    margin-right: 20px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .root {
+    .logo {
+      font-size: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .root {
+    .logo {
+      font-size: 20px;
+    }
   }
 }
