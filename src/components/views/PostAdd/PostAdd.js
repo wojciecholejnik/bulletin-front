@@ -21,7 +21,7 @@ class Component extends React.Component {
   state = {
     title: '',
     content: '',
-    publicDate: '',
+    publishDate: '',
     lastUpdate: '',
     status: 'draw',
     price: '',
@@ -47,7 +47,7 @@ class Component extends React.Component {
   setOtherInfo = () => {
     const today = new Date();
     const parsedDate = today.getDate() + '.' + (1 + today.getMonth()) + '.' + today.getFullYear();
-    this.setState({publicDate: parsedDate, lastUpdate: parsedDate});
+    this.setState({publishDate: parsedDate, lastUpdate: parsedDate});
   }
 
   componentDidMount(){

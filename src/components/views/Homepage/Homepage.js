@@ -36,7 +36,7 @@ function Component({className, products}){
         <Grid key={product.id} item lg={4} xs={12} sm={6} md={6} >
           <Paper  elevation={5} className={clsx(className, styles.root)}>
             <Card variant="outlined">
-              <CardActionArea component={NavLink} to={`/post/${product.id}`}>
+              <CardActionArea component={NavLink} to={`/post/${product._id}`}>
                 <CardMedia
                   component="img"
                   alt="product"
@@ -51,7 +51,7 @@ function Component({className, products}){
                 </CardContent>
                 <CardContent className={classes.container}>
                   <Typography variant="overline" >
-                    {product.publicDate} in {product.location}
+                    {product.publishDate} in {product.location}
                   </Typography>
                 </CardContent>
                 <CardContent className={classes.container}>

@@ -23,7 +23,7 @@ class Component extends React.Component {
   state = {
     title: '',
     content: '',
-    publicDate: '',
+    publishDate: '',
     lastUpdate: '',
     status: 'draw',
     price: '',
@@ -49,9 +49,10 @@ class Component extends React.Component {
   setOtherInfo = () => {
     const today = new Date();
     const parsedDate = today.getDate() + '.' + (1 + today.getMonth()) + '.' + today.getFullYear();
-    const product = this.props.products.find(element => element.id == this.props.match.params.id);
+    const product = this.props.products.find(element => element._id == this.props.match.params.id);
     this.setState({
-      publicDate: parsedDate, lastUpdate: parsedDate,
+      publishDate: product.publishDate,
+      lastUpdate: parsedDate,
       content: product.content,
       location: product.location,
       phone: product.phone,
@@ -71,7 +72,7 @@ class Component extends React.Component {
     const { className, account, admin, products, match } = this.props;
     const { handleChange, setPhoto } = this;
     // eslint-disable-next-line eqeqeq
-    const product = products.find(element => element.id == match.params.id);
+    const product = products.find(element => element._id == match.params.id);
 
 
     return (
@@ -106,7 +107,7 @@ class Component extends React.Component {
                   label="Title"
                   variant="filled"
                   onChange={handleChange}
-                  defaultValue={this.state.title}
+                  defaultValue={product.title}
                 />
               </CardContent>
               <CardContent>
@@ -121,7 +122,7 @@ class Component extends React.Component {
                   label="Description"
                   variant="filled"
                   onChange={handleChange}
-                  defaultValue={this.state.content}
+                  defaultValue={product.content}
                 />
               </CardContent>
               <CardContent>
@@ -135,7 +136,7 @@ class Component extends React.Component {
                   label="Location"
                   variant="filled"
                   onChange={handleChange}
-                  defaultValue={this.state.location}
+                  defaultValue={product.location}
 
                 />
               </CardContent>
@@ -150,7 +151,7 @@ class Component extends React.Component {
                   label="Phone"
                   variant="filled"
                   onChange={handleChange}
-                  defaultValue={this.state.phone}
+                  defaultValue={product.phone}
                 />
               </CardContent>
               <CardContent>
@@ -162,7 +163,7 @@ class Component extends React.Component {
                   label="Price in $"
                   variant="filled"
                   onChange={handleChange}
-                  defaultValue={this.state.price}
+                  defaultValue={product.price}
                 />
               </CardContent>
 

@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) =>({
 
 function Component({className, match, products, admin, account}){
   // eslint-disable-next-line eqeqeq
-  const product = products.find(element => element.id == match.params.id);
+  const product = products.find(element => element._id == match.params.id);
   const classes = useStyles();
 
   return (
@@ -78,7 +78,7 @@ function Component({className, match, products, admin, account}){
           </CardContent>
           {admin || (account.logged && account.email === product.email) ? (
             <CardContent>
-              <IconButton className={classes.button} component={NavLink} to={'/post/' + product.id + '/edit'} variant="contained" color="primary"><CreateIcon/></IconButton>
+              <IconButton className={classes.button} component={NavLink} to={'/post/' + product._id + '/edit'} variant="contained" color="primary"><CreateIcon/></IconButton>
               <IconButton className={classes.button} variant="contained" color="secondary"><DeleteForeverOutlinedIcon/></IconButton>
             </CardContent>
           ) : ''}
@@ -88,7 +88,7 @@ function Component({className, match, products, admin, account}){
         <Card>
           <CardContent>
             <Typography align="left" variant="overline">
-              public date: {product.publicDate}
+              public date: {product.publishDate}
             </Typography>
           </CardContent>
           <CardContent>
